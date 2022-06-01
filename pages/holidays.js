@@ -1,10 +1,11 @@
+import { Container, Spacer, Flex } from "@chakra-ui/react";
 import Head from "next/head";
-import Card from "../components/card/Card";
-import Hero from "../components/hero/Hero";
 import Navbar from "../components/navbar/Navbar";
+import LocationSelect from "../components/select/LocationSelect";
+import HolidaysTable from "../components/table/HolidaysTable";
 import { useFetchUser } from "../lib/user";
 
-export default function Home() {
+export default function Holidays() {
   const { user, error, isLoading } = useFetchUser();
   return (
     <>
@@ -13,7 +14,9 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar isSignedIn={user} />
-      <Hero />
+      <Container maxW="5xl" p={{ base: 5, md: 5 }}>
+        <HolidaysTable />
+      </Container>
     </>
   );
 }
